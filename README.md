@@ -1,6 +1,10 @@
 # Android dev usefuls
+<br>
 
 A list of things I learnt the hard way.
+Many of these use [adb](https://developer.android.com/studio/command-line/adb.html).
+<br>
+<br>
 
 ### Table of contents
 1. [Emulator tips](#EmulatorTips)
@@ -8,8 +12,11 @@ A list of things I learnt the hard way.
     2. [Controlling the emulator via telnet](#Telnet)
     3. [Finding files](#FindingFiles)
 2. [Accessing Sqlite databases](#Sqlite)
-
+<br>
+<br>
 ## Emulator tips <a name="EmulatorTips"></a>
+<br>
+<br>
 
 ### Pasting text in a text box <a name="PastingText"></a>
 
@@ -20,6 +27,8 @@ A list of things I learnt the hard way.
 	From http://stackoverflow.com/questions/37039829/pasting-text-on-new-android-emulator/37043990#37043990
 
 * Note: You can also send an SMS and copy/paste, but this is much easier.
+<br>
+<br>
 
 ### Controlling the emulator via telnet <a name="Telnet"></a>
 
@@ -68,6 +77,8 @@ Injecting GPS (location) coordinates, inbound calls and SMSs
 	and lots of other stuff: see the link
 
 	From https://developer.android.com/studio/run/emulator-console.html
+<br>
+<br>
 
 ### Finding files <a name="FindingFiles"></a>
 
@@ -80,8 +91,11 @@ Injecting GPS (location) coordinates, inbound calls and SMSs
 	__find / -name *.txt__
 
 	If you start at root (/) you will get a lot of "permission denied" etc, you should be able to use `grep -v` to filter those out.
+<br>
+<br>
+<br>
 
-### Accessing Sqlite databases <a name="Sqlite"></a>
+## Accessing Sqlite databases <a name="Sqlite"></a>
 
 Of course, you can find the db, copy it to the host and use a tool to inspect and change it.
 
