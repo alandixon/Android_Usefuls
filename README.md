@@ -14,6 +14,7 @@ Many of these use [adb](https://developer.android.com/studio/command-line/adb.ht
 2. [Accessing Sqlite databases](#Sqlite)
 <br>
 <br>
+
 ## Emulator tips <a name="EmulatorTips"></a>
 <br>
 <br>
