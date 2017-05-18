@@ -3,14 +3,18 @@
 
 A list of things I learnt the hard way.
 Many of these use [adb](https://developer.android.com/studio/command-line/adb.html).
-<br>
-<br>
+
+These are based around Xamarin, C# and Visual Studio 2017.
+I usually run the Android Emulators, rather than the MS ones as I prefer VirtualBox to Hyper-V, but it shouldn't matter here.
+
+
 
 ### Table of contents
 1. [Emulator tips](#EmulatorTips)
     1. [Pasting text in a text box](#PastingText)
-    2. [Controlling the emulator via telnet](#Telnet)
-    3. [Finding files](#FindingFiles)
+    2. [Debug Log Messages](#DebugLogMessages)
+    3. [Controlling the emulator via telnet](#Telnet)
+    4. [Finding files](#FindingFiles)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
 <br>
@@ -19,7 +23,6 @@ Many of these use [adb](https://developer.android.com/studio/command-line/adb.ht
 ## Emulator tips <a name="EmulatorTips"></a>
 <br>
 <br>
-
 ### Pasting text in a text box <a name="PastingText"></a>
 
 (There should only be one device found with "adb devices")
@@ -31,6 +34,27 @@ Many of these use [adb](https://developer.android.com/studio/command-line/adb.ht
 * Note: You can also send an SMS and copy/paste, but this is much easier.
 <br>
 <br>
+
+### Debug Log Messages <a name="DebugLogMessages"></a>
+
+It's useful to see log messages while running without too much effort.
+Logging code is based on the [Android.Util.Log Class](https://developer.xamarin.com/api/type/Android.Util.Log/) and looks like this
+
+    Log.Info("IConnectionCallbacks", "OnConnected()");
+
+Display the Android Log with View => Other Windows => Device Log
+
+Drop down the "Choose device" selector to choose your emulator.
+
+There will be a shed-load of message, so you will need to filter with the search option.
+
+I might use "IConnectionCallbacks" for the above message.
+
+Another option is to prepend all your messages (or tags) with a unique string e.g. "###".
+
+You can then search for that string and only your messages will appear.
+
+From https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/android_debug_log/
 
 ### Controlling the emulator via telnet <a name="Telnet"></a>
 
@@ -172,7 +196,7 @@ You get to the
 
     sqlite>
 
-cursor and you can no longer use the cursor keys here, you just get this sort of stuff: \^[[A^[[B^[[C
+cursor and you can no longer use the cursor keys here, you just get this sort of stuff: \^[[A^[[B^[[C.
 These are the control codes for up-arrow, down-arrow etc
 
 If you need to use the cursor keys a lot, don't go into the sqlite interpeter at all, but just run sqlite from the adb cursor:
@@ -183,7 +207,7 @@ The sql commands need to be completely enclosed in double quotes
 
 For some reason, the terminal width is limited to about 78 chars wide (let me know if you find a fix)
 
-So, you can reduce the command size by cd-ing to the db subdirectory in adb:
+So, you can reduce the command size by cd-ing to the db subdirectory in adb shell:
 
     cd data/data/DarkWeather.Droid/files
 
