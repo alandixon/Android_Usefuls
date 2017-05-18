@@ -157,6 +157,8 @@ This way is a bit quicker.
 
 
 	From http://alvinalexander.com/android/android-command-line-shell-show-sqlite-tables-adb-sqlite3
+
+    More help with Sqlite commands [here](https://www.sqlite.org/cli.html).
 <br>
 <br>
 
