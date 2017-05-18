@@ -12,6 +12,7 @@ Many of these use [adb](https://developer.android.com/studio/command-line/adb.ht
     2. [Controlling the emulator via telnet](#Telnet)
     3. [Finding files](#FindingFiles)
 2. [Accessing Sqlite databases](#Sqlite)
+   1. [Cursor navigation](#SqliteCursor)
 <br>
 <br>
 
@@ -156,5 +157,39 @@ This way is a bit quicker.
 
 
 	From http://alvinalexander.com/android/android-command-line-shell-show-sqlite-tables-adb-sqlite3
+<br>
+<br>
+
+### Cursor navigation <a name="SqliteCursor"></a>
+
+You'll probably notice that as soon as you run Sqlite against the db file
+
+	sqlite3 data/data/DarkWeather.Droid/files/DarkWeather.db
+
+You get to the
+
+    sqlite>
+
+cursor and you can no longer use the cursor keys here, you just get this sort of stuff: \^[[A^[[B^[[C
+These are the control codes for up-arrow, down-arrow etc
+
+If you need to use the cursor keys a lot, don't go into the sqlite interpeter at all, but just run sqlite from the adb cursor:
+
+    sqlite3 data/data/DarkWeather.Droid/files/DarkWeather.db "select count(*) from KeyValuePairDto"
+
+The sql commands need to be completely enclosed in double quotes
+
+For some reason, the terminal width is limited to about 78 chars wide (let me know if you find a fix)
+
+So, you can reduce the command size by cd-ing to the db subdirectory in adb:
+
+    cd data/data/DarkWeather.Droid/files
+
+Then, just reference the db without the path:
+
+    sqlite3 DarkWeather.db "select count(*) from KeyValuePairDto"
+
+From http://stackoverflow.com/questions/15747564/cursor-keys-not-working-when-using-sqlite3-from-adb-shell/30282915#30282915
+
 
 
