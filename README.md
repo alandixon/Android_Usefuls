@@ -38,11 +38,11 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
 ### Debug Log Messages <a name="DebugLogMessages"></a>
 
 It's useful to see log messages while running without too much effort.
-Logging code is based on the [Android.Util.Log Class](https://developer.xamarin.com/api/type/Android.Util.Log/) and looks like this
+Logging code is based on the [Android.Util.Log Class](https://developer.xamarin.com/api/type/Android.Util.Log/) and looks like this:
 
     Log.Info("IConnectionCallbacks", "OnConnected()");
 
-Display the Android Log with View => Other Windows => Device Log
+In VS2017, display the Android Log with View => Other Windows => Device Log
 
 Drop down the "Choose device" selector to choose your emulator.
 
@@ -55,6 +55,8 @@ Another option is to prepend all your messages (or tags) with a unique string e.
 You can then search for that string and only your messages will appear.
 
 From https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/android_debug_log/
+<br>
+<br>
 
 ### Controlling the emulator via telnet <a name="Telnet"></a>
 
