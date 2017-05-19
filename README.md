@@ -23,6 +23,7 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
 ## Emulator tips <a name="EmulatorTips"></a>
 <br>
 <br>
+
 ### Pasting text in a text box <a name="PastingText"></a>
 
 (There should only be one device found with "adb devices")
