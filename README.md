@@ -14,7 +14,8 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     1. [Pasting text in a text box](#PastingText)
     2. [Debug Log Messages](#DebugLogMessages)
     3. [Controlling the emulator via telnet](#Telnet)
-    4. [Finding files](#FindingFiles)
+    4. [Setting Location](#Location)
+    5. [Finding files](#FindingFiles)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
 <br>
@@ -106,6 +107,23 @@ Injecting GPS (location) coordinates, inbound calls and SMSs
 	and lots of other stuff: see the link
 
 	From https://developer.android.com/studio/run/emulator-console.html
+<br>
+<br>
+
+### Setting Location <a name="Location"></a>
+
+I couldn't get the telnet approach to setting location to work (although other things did e.g. battery level)
+
+Another approach for GPS is to use the dynamic controls provided with the emulator.
+
+For this to work, you need to set "Skin" to "Skin with dynamic hardware controls" when you create / edit your AVD (Android Virtual Device).
+
+Then, when the emulator is running, click the three dots (more) at the bottom of the dynamic control pane and select Location.
+
+Enter the values you want and click SEND.
+
+From https://developer.android.com/studio/run/emulator.html#extended
+
 <br>
 <br>
 
