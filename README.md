@@ -2,9 +2,9 @@
 <br>
 
 A list of things I learnt the hard way.
-Many of these use [adb](https://developer.android.com/studio/command-line/adb.html).
+Many of these use [adb](https://developer.android.com/studio/command-line/adb.html). ([adbshell.com](http://adbshell.com/) has a good list of commands you can use with adb).  See [Connecting](#Connecting) for a bit more about connecting adb to emulators or real hardware.
 
-These are based around Xamarin, C# and Visual Studio 2017.
+These tips and tricks are based around Xamarin, C# and Visual Studio 2017.
 I usually run the Android Emulators, rather than the MS ones as I prefer VirtualBox to Hyper-V, but it shouldn't matter here.
 
 
@@ -18,6 +18,9 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     5. [Finding files](#FindingFiles)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
+3. [Target hardware tips](#TargetHw)
+   1. [Connecting](#Connecting)
+   1. [Viewing logs](#ViewingLogs)
 <br>
 <br>
 
@@ -237,6 +240,52 @@ Then, just reference the db without the path:
     sqlite3 DarkWeather.db "select count(*) from KeyValuePairDto"
 
 From http://stackoverflow.com/questions/15747564/cursor-keys-not-working-when-using-sqlite3-from-adb-shell/30282915#30282915
+<br>
+<br>
 
+## Target hardware tips <a name="TargetHw"></a>
+<br>
 
+### Connecting <a name="#Connecting"></a>
+Connect the hardware (phone / tablet) to your PC (sorry, I'm not an apple fan) with a normal USB cable.
+Locate your adb executable.
 
+Mine is in `C:\Program Files (x86)\Android\android-sdk\platform-tools`
+
+Look for devices:
+
+**adb devices**
+
+You should get something like this
+
+	List of devices attached
+	TA38172UIS      unauthorized
+
+If you see "unauthorised", there are several possibilities, the simplest is probably that a dialog has popped up on your hardware and you need to allow USB debugging. Running the "adb devices" command again should now give
+
+	List of devices attached
+	TA38172UIS      device
+
+You're now ready to communicate using adb
+<br>
+<br>
+
+### Viewing logs <a name="#ViewingLogs"></a>
+
+Look at all the logs
+
+**adb logcat**
+
+This produces a lot of stuff. There are several ways to filter it down.  In all cases, I can leave `adb logcat` running and the display will update as new messages come in.
+
+* Use the DOS `find` command
+
+    **adb logcat | find /I DarkWeather**
+
+    Here I am filtering just log lines that contain the name of my project. (The /I is in case I forgot to capitalise the name correctly)
+
+* Use specific logcat commands to limit the data
+
+    **adb logcat --help**
+
+    shows the possibilities, also [this](https://developer.android.com/studio/command-line/logcat.html).
