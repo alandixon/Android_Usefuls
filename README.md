@@ -151,7 +151,7 @@ Of course, you can find the db, copy it to the host and use a tool to inspect an
 
 This way is a bit quicker.
 
-* Start adb and make sure Android Emulator is running
+* Start adb (see [Connecting](#Connecting)) and make sure Android Emulator is running
 
 	**adb devices**
 
