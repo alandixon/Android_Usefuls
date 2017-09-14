@@ -20,7 +20,7 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
    1. [Cursor navigation](#SqliteCursor)
 3. [Target hardware tips](#TargetHw)
    1. [Connecting](#Connecting)
-   1. [Viewing logs](#ViewingLogs)
+   2. [Viewing logs](#ViewingLogs)
 <br>
 <br>
 
@@ -246,7 +246,7 @@ From http://stackoverflow.com/questions/15747564/cursor-keys-not-working-when-us
 ## Target hardware tips <a name="TargetHw"></a>
 <br>
 
-### Connecting <a name="#Connecting"></a>
+### Connecting <a name="Connecting"></a>
 Connect the hardware (phone / tablet) to your PC (sorry, I'm not an apple fan) with a normal USB cable.
 Locate your adb executable.
 
@@ -270,7 +270,7 @@ You're now ready to communicate using adb
 <br>
 <br>
 
-### Viewing logs <a name="#ViewingLogs"></a>
+### Viewing logs <a name="ViewingLogs"></a>
 
 Look at all the logs
 
