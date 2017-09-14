@@ -18,6 +18,7 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     5. [Finding files](#FindingFiles)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
+   2. [TimeStamps](#TimeStamps)
 3. [Target hardware tips](#TargetHw)
    1. [Connecting](#Connecting)
    2. [Viewing logs](#ViewingLogs)
@@ -242,6 +243,29 @@ Then, just reference the db without the path:
 From http://stackoverflow.com/questions/15747564/cursor-keys-not-working-when-using-sqlite3-from-adb-shell/30282915#30282915
 <br>
 <br>
+
+### TimeStamps <a name="TimeStamps"></a>
+
+You can store your timestamps in various ways including strings (ugh!). Some of the more efficient ways are
+
+#### Int
+If you want second precision -  Unix Time, the number of seconds since 1970-01-01 00:00:00 UTC
+
+To show a comprehensible value at the command line, use this
+
+`select datetime(IntTimeColumn, 'unixepoch') from TableWithTimes;`
+
+#### BigInt
+If you want subsecond precision - hundreds of nanoseconds from the begining of Common Age (I think).
+
+To show a comprehensible value at the command line, use this
+
+`select datetime(DateColumn/10000000 - 62135596800, 'unixepoch') from TableWithTimes;`
+
+From https://stackoverflow.com/questions/1342448/convert-sqlite-bigint-to-date/41607123#41607123
+<br>
+<br>
+
 
 ## Target hardware tips <a name="TargetHw"></a>
 <br>
