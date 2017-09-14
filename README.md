@@ -260,7 +260,7 @@ If you want subsecond precision - hundreds of nanoseconds from the begining of C
 
 To show a comprehensible value at the command line, use this
 
-`select datetime(DateColumn/10000000 - 62135596800, 'unixepoch') from TableWithTimes;`
+`select datetime(BigIntTimeColumn/10000000 - 62135596800, 'unixepoch') from TableWithTimes;`
 
 From https://stackoverflow.com/questions/1342448/convert-sqlite-bigint-to-date/41607123#41607123
 <br>
