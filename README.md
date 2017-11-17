@@ -16,6 +16,8 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     3. [Controlling the emulator via telnet](#Telnet)
     4. [Setting Location](#Location)
     5. [Finding files](#FindingFiles)
+    6. [Emulator Errors](#EmulatorErrors)
+          1. [App stops at startup](#AppsStopsAtStartup)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
    2. [TimeStamps](#TimeStamps)
@@ -142,6 +144,32 @@ From https://developer.android.com/studio/run/emulator.html#extended
 	__find / -name *.txt__
 
 	If you start at root (/) you will get a lot of "permission denied" etc, you should be able to use `grep -v` to filter those out.
+
+<br>
+<br>
+
+###  Emulator Errors <a name="EmulatorErrors"></a>
+
+
+#### App stops at startup <a name="AppsStopsAtStartup"></a>
+
+Before your app starts up properly, you get a popup on the emulator:
+```
+"Unfortunately, DarkWeather.Droid has stopped"
+```
+or similar.
+
+The xamarin Diagnostics output window in Visual Studio shows something like this:
+```
+[E:]:  Emulator name lookup failed for emulator emulator-5537'
+System.AggregateException: One or more errors occurred. ---> System.AggregateException: One or more errors occurred. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Mono.AndroidTools.AndroidEmulatorConsole.<>c__DisplayClass7_0.<RunCommand>b__0() in C:\d\lanes\4985\0841c2aa\source\xamarinvs\External\md-addins\MonoDevelop.MonoDroid\external\androidtools\Mono.AndroidTools\AndroidEmulatorConsole.cs:line 85
+```
+The error message repeats in various guises.
+
+In my case, the problem  was  that  I'd left VS  in Release mode following a deployment.
+
+As  soon as I set it back to Debug, [voilà](https://en.wiktionary.org/wiki/voil%C3%A0).
 <br>
 <br>
 <br>
