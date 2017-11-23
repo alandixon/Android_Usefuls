@@ -18,6 +18,7 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     5. [Finding files](#FindingFiles)
     6. [Emulator Errors](#EmulatorErrors)
           1. [App stops at startup](#AppsStopsAtStartup)
+          2. [Could not open avd_name.avd/cache.img](#CouldNotOpenCacheImg)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
    2. [TimeStamps](#TimeStamps)
@@ -170,6 +171,18 @@ The error message repeats in various guises.
 In my case, the problem  was  that  I'd left VS  in Release mode following a deployment.
 
 As  soon as I set it back to Debug, [voilà](https://en.wiktionary.org/wiki/voil%C3%A0).
+<br>
+<br>
+
+#### qemu-system-i386.exe: Could not open avd_name.avd/cache.img <a name="CouldNotOpenCacheImg"></a>
+
+Typically because another process is accessing the emulator.
+
+Do you have another Visual  Studio running?
+
+Kill the emulator and if that doesn't work, hunt down and kill qemu-system-i386.exe in task manager.
+
+From https://stackoverflow.com/questions/35701174/could-not-open-avd-name-avd-cache-img/40789371#40789371
 <br>
 <br>
 <br>
