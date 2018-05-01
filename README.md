@@ -64,6 +64,8 @@ Another option is to prepend all your messages (or tags) with a unique string e.
 You can then search for that string and only your messages will appear.
 
 From https://developer.xamarin.com/guides/android/deployment,_testing,_and_metrics/android_debug_log/
+
+See also  [Viewing logs](#ViewingLogs)
 <br>
 <br>
 
@@ -354,3 +356,5 @@ This produces a lot of stuff. There are several ways to filter it down.  In all 
     **adb logcat --help**
 
     shows the possibilities, also [this](https://developer.android.com/studio/command-line/logcat.html).
+
+* See also [Debug Log Messages](#DebugLogMessages)
