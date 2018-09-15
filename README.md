@@ -151,6 +151,9 @@ You can append simple commands straight on to adb:
 
 * etc etc
 
+<br>
+<br>
+
 ### Finding files <a name="FindingFiles"></a>
 
 * adb to get a shell on the emulator
