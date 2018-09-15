@@ -15,8 +15,9 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     2. [Debug Log Messages](#DebugLogMessages)
     3. [Controlling the emulator via telnet](#Telnet)
     4. [Setting Location](#Location)
-    5. [Finding files](#FindingFiles)
-    6. [Emulator Errors](#EmulatorErrors)
+    5. [Simple commands](#SimpleCommands)
+    6. [Finding files](#FindingFiles)
+    7. [Emulator Errors](#EmulatorErrors)
           1. [App stops at startup](#AppsStopsAtStartup)
           2. [Could not open avd_name.avd/cache.img](#CouldNotOpenCacheImg)
 2. [Accessing Sqlite databases](#Sqlite)
@@ -135,6 +136,20 @@ From https://developer.android.com/studio/run/emulator.html#extended
 
 <br>
 <br>
+
+### Simple commands <a name="SimpleCommands"></a>
+
+You can append simple commands straight on to adb:
+
+* List files in a folder
+
+	**adb ls -la /data/user/0**
+
+* List out a file
+
+	**adb shell cat /data/misc/net/rt_tables**
+
+* etc etc
 
 ### Finding files <a name="FindingFiles"></a>
 
