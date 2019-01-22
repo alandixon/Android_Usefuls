@@ -20,6 +20,8 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     7. [Emulator Errors](#EmulatorErrors)
           1. [App stops at startup](#AppsStopsAtStartup)
           2. [Could not open avd_name.avd/cache.img](#CouldNotOpenCacheImg)
+    8. [Emulators and proxies](#EmulatorsProxies)
+          1. [Android in VirtualBox and ADB](#AndroidVirtualBoxADB)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
    2. [TimeStamps](#TimeStamps)
@@ -206,6 +208,35 @@ From https://stackoverflow.com/questions/35701174/could-not-open-avd-name-avd-ca
 <br>
 <br>
 <br>
+
+
+###  Emulators and proxies <a name="EmulatorsProxies"></a>
+
+It seems hard to proxy everything out of Android and Android in an emulator.
+
+For pen-testing, as distinct from Android dev, I've taken to running [Android_x86](http://www.android-x86.org/) in [Virtual Box](https://www.virtualbox.org/). 
+Specifically, I run android-x86_64-6.0-r3 as this is pre-Nougat and allows (easy) certificate additions.
+
+To push all traffic to a proxy e.g. Burp
+* adb shell settings put global http_proxy 192.168.1.4:8080
+* adb shell settings put global https_proxy 192.168.1.4:8080
+
+192.168.1.4 is the address of the host machine running Burp and 8080 i sthe port Burp is listening on.
+
+You will probably need to confgure your setup so that ADB talks to Android inside the emulator
+
+####  Android in VirtualBox and ADB <a name="AndroidVirtualBoxADB"></a>
+
+Thhis is the way I found to get ADB to talk to the emulated Android:
+
+* Determine Android IP address as follows:
+* <Alt>F1 to get a console
+* **ifconfig** and read the eth0 address (ipaddr)
+* <Alt>F7 to get back to the UI
+* On the host: **adb connect ipaddr**
+* **adb devices** will show you if it is connected
+
+
 
 ## Accessing Sqlite databases <a name="Sqlite"></a>
 
