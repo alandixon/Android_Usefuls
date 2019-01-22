@@ -217,11 +217,30 @@ It seems hard to proxy everything out of Android and Android in an emulator.
 For pen-testing, as distinct from Android dev, I've taken to running [Android_x86](http://www.android-x86.org/) in [Virtual Box](https://www.virtualbox.org/). 
 Specifically, I run android-x86_64-6.0-r3 as this is pre-Nougat and allows (easy) certificate additions.
 
-To push all traffic to a proxy e.g. Burp
-* adb shell settings put global http_proxy 192.168.1.4:8080
-* adb shell settings put global https_proxy 192.168.1.4:8080
+To push all traffic to a proxy e.g. [Burp](https://portswigger.net/burp) listening on 192.168.1.4 port 8080
+```
+adb shell settings put global http_proxy 192.168.1.4:8080
+adb shell settings put global global_http_proxy_host 192.168.1.4
+adb shell settings put global global_http_proxy_port 8080
+adb shell settings put global https_proxy 192.168.1.4:8080
+adb shell settings put global global_https_proxy_host 192.168.1.4
+adb shell settings put global global_https_proxy_port 8080
+```
 
-192.168.1.4 is the address of the host machine running Burp and 8080 i sthe port Burp is listening on.
+192.168.1.4 is the address of the host machine running Burp and 8080 is the port Burp is listening on.
+
+List global settings with **adb shell settings list global**
+
+Remove with
+```
+adb shell settings delete global http_proxy
+adb shell settings delete global global_http_proxy_host
+adb shell settings delete global global_http_proxy_port
+adb shell settings delete global https_proxy
+adb shell settings delete global global_https_proxy_host
+adb shell settings delete global global_https_proxy_port
+```
+
 
 You will probably need to confgure your setup so that ADB talks to Android inside the emulator
 
