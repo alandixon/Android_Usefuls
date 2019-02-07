@@ -22,6 +22,7 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
           2. [Could not open avd_name.avd/cache.img](#CouldNotOpenCacheImg)
     8. [Emulators and proxies](#EmulatorsProxies)
           1. [Android in VirtualBox and ADB](#AndroidVirtualBoxADB)
+    9. [Emulators and email](#EmulatorEmail)
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
    2. [TimeStamps](#TimeStamps)
@@ -246,15 +247,22 @@ You will probably need to confgure your setup so that ADB talks to Android insid
 
 ####  Android in VirtualBox and ADB <a name="AndroidVirtualBoxADB"></a>
 
-Thhis is the way I found to get ADB to talk to the emulated Android:
+This is the way I found to get ADB to talk to the emulated Android:
 
 * Determine Android IP address as follows:
-* <Alt>F1 to get a console
+* < Alt >F1 to get a console
 * **ifconfig** and read the eth0 address (ipaddr)
-* <Alt>F7 to get back to the UI
+* < Alt >F7 to get back to the UI
 * On the host: **adb connect ipaddr**
 * **adb devices** will show you if it is connected
 
+###  Emulators and email <a name="EmulatorEmail"></a>
+
+It can be useful to have email on the emulator.
+
+Use the supplied (simple) client with a gmail address.
+
+[This link](https://www.e-mailsettings.com/android/gmail-mail-setup) explains how to configure the account.
 
 
 ## Accessing Sqlite databases <a name="Sqlite"></a>
