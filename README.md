@@ -419,6 +419,8 @@ Look at all the logs
 
 **adb logcat**
 
+**adb logcat -v time**  // includes a timestamp (host machine if on an emulator), but it's a strange layout and I don't know how to format it.
+
 This produces a lot of stuff. There are several ways to filter it down.  In all cases, I can leave `adb logcat` running and the display will update as new messages come in.
 
 * Use the DOS `find` command
