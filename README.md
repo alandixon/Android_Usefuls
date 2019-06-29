@@ -27,10 +27,13 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
    1. [Cursor navigation](#SqliteCursor)
    2. [TimeStamps](#TimeStamps)
 3. [Target hardware tips](#TargetHw)
-   1. [Connecting](#Connecting)
+    1. [Connecting](#Connecting)
+         1. [Connecting to multiple devices/emulators](#MultipleDevices)
    2. [Viewing logs](#ViewingLogs)
 <br>
 <br>
+
+
 
 ## Emulator tips <a name="EmulatorTips"></a>
 <br>
@@ -413,7 +416,7 @@ You're now ready to communicate using adb
 <br>
 <br>
 
-#### Connecting to multiple devices/emulators
+#### Connecting to multiple devices/emulators <a name="MultipleDevices"></a>
 Sometimes you may have more than one emulator active.
 
 Get devices ids:
@@ -427,6 +430,12 @@ Get devices ids:
 Then use
 <br>
 **adb -s emulator-5554 commands...**
+
+OR, if you have just one emulated device and one real device connected over USB
+
+	adb -d  ... // directs the adb command to the USB device
+	adb -e  ... // directs the adb command to the emulator
+This returns an error if there is more than one USB device/emulator connected
 
 From https://stackoverflow.com/questions/14654718/how-to-use-adb-shell-when-multiple-devices-are-connected-fails-with-error-mor
 
