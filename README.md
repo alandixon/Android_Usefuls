@@ -413,6 +413,25 @@ You're now ready to communicate using adb
 <br>
 <br>
 
+#### Connecting to multiple devices/emulators
+Sometimes you may have more than one emulator active.
+
+Get devices ids:
+
+**adb devices**
+
+	List of devices attached
+	emulator-5554   device
+	emulator-5556   device
+
+Then use
+<br>
+**adb -s emulator-5554 commands...**
+
+From https://stackoverflow.com/questions/14654718/how-to-use-adb-shell-when-multiple-devices-are-connected-fails-with-error-mor
+
+
+
 ### Viewing logs <a name="ViewingLogs"></a>
 
 Look at all the logs
