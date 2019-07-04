@@ -23,6 +23,10 @@ I usually run the Android Emulators, rather than the MS ones as I prefer Virtual
     8. [Emulators and proxies](#EmulatorsProxies)
           1. [Android in VirtualBox and ADB](#AndroidVirtualBoxADB)
     9. [Emulators and email](#EmulatorEmail)
+    10. [Cameras](#Cameras)
+          1. [Snapping existing digital images](#SnappingExistingDigitalImages)
+    11. [Wifi problems](#Wifi)
+
 2. [Accessing Sqlite databases](#Sqlite)
    1. [Cursor navigation](#SqliteCursor)
    2. [TimeStamps](#TimeStamps)
@@ -267,6 +271,43 @@ Use the supplied (simple) client with a gmail address.
 
 [This link](https://www.e-mailsettings.com/android/gmail-mail-setup) explains how to configure the account.
 
+###  Cameras <a name="Cameras"></a>
+
+####  Snapping existing digital images <a name="SnappingExistingDigitalImages"></a>
+
+You may need to feed the camera with an existing digital image, e.g. of a QR code an app is looking for.
+<br>The back camera (facing away) must be set to "Emulated" (and you cannot have both front and back caneras set to Emulated)
+<br>In the extended controls of the emulator, select Camera.
+<br>If you can't see the Camera option, most likely the back camera is not set to Emulated.
+<br>The Camera page is titled "Virtual Scene Images".
+<br>From https://developers.google.com/ar/develop/java/emulator#add_augmented_images_to_the_scene
+<br>Once the camera is working, you will be able to pan around a virtual scene with a table and a wall.
+<br>I suggest loading a picture for the wall as the table-top is hard to see at a sensible angle.
+<br>If none of the above makes sense, just press on!
+<br>I suggest giving the wall image a size of 1 metre.
+<br>When you start the camera app, or another app tries to use the camera, you will find yourself in a room looking at a window.
+<br>Hold down the <Alt> key and move the mouse to look left, right, up and down.
+<br>Hold down the <Alt> key and tap the keys to move:
+<br>Move left or right  -  Hold Alt + press A or D
+<br>Move down or up	Hold  -  Alt + press Q or E
+<br>Move forward or back  -  Hold Alt + press W or S
+
+<br><br>To get to the wall and table images, you will have to turn around 180 degrees, enter the room on your right and move to the wall.  The table gets in the way.
+<br> 
+From https://developers.google.com/ar/develop/java/emulator#control_the_virtual_scene
+
+
+<br>Alternatively, try an image-to-camera app such as this:
+https://github.com/GhostFlying/image-to-camera
+
+
+###  Wifi problems<a name="Wifi"></a>
+If the emulator wifi (AndroidWifi) is saying "No internet" and everything else is working, go back to the hardware adapter that is providing the network connection to the emulator.
+Look at the adapter properties, specifically "Internet Protocol Version 4 (TCP/IPv4)".
+<br> If manual DNS settings are enabled, the DNS servers need to be the Google ones: 8.8.8.8 and 8.8.4.4.
+<br> From https://stackoverflow.com/questions/50670547/android-emulator-wifi-connected-with-no-internet/52765004#52765004
+
+<br> 
 
 ## Accessing Sqlite databases <a name="Sqlite"></a>
 
