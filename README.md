@@ -289,7 +289,7 @@ You may need to feed the camera with an existing digital image, e.g. of a QR cod
 <br>Hold down the <Alt> key and move the mouse to look left, right, up and down.
 <br>Hold down the <Alt> key and tap the keys to move:
 <br>Move left or right  -  Hold Alt + press A or D
-<br>Move down or up	Hold  -  Alt + press Q or E
+<br>Move down or up	- Hold Alt + press Q or E
 <br>Move forward or back  -  Hold Alt + press W or S
 
 <br>To get to the wall and table images, you will have to turn around 180 degrees, enter the room on your right and move to the wall.  The table gets in the way.
@@ -303,7 +303,7 @@ If the emulator wifi (AndroidWifi) is saying "No internet" and everything else i
 Look at the adapter properties, specifically "Internet Protocol Version 4 (TCP/IPv4)".
 <br> If manual DNS settings are enabled, the DNS servers need to be the Google ones: 8.8.8.8 and 8.8.4.4.
 <br> From https://stackoverflow.com/questions/50670547/android-emulator-wifi-connected-with-no-internet/52765004#52765004
-<br> I'm guessing this is Google trying to make sure yout DNS doesn't get poisoned
+<br> I'm guessing this is Google trying to make sure your DNS doesn't get poisoned
 
 ## Accessing Sqlite databases <a name="Sqlite"></a>
 
